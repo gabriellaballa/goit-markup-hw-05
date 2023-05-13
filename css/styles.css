@@ -111,6 +111,7 @@ a {
   display: flex;
   justify-content: center;
   margin-top: 40px;
+  cursor: pointer;
 }
 .whatwedo {
   display: flex;
@@ -185,10 +186,8 @@ a {
   font-size: 16px;
   line-height: 1.18;
   /* identical to box height */
-
   text-align: center;
   letter-spacing: 0.03em;
-
   color: #212121;
 }
 .index-job {
@@ -198,7 +197,6 @@ a {
   font-size: 16px;
   line-height: 1.18;
   /* identical to box height */
-
   text-align: center;
   letter-spacing: 0.03em;
 
@@ -288,13 +286,13 @@ a {
   width: 100%;
   height: 0px;
   left: 0px;
-
   border: 1px solid #ececec;
 }
 .btns,
 .buttons {
   display: flex;
   margin: 0;
+  cursor: pointer;
 }
 .btns {
   margin-bottom: 50px;
@@ -316,7 +314,6 @@ a {
   border-radius: 4px;
   border-color: #f5f4fa;
   font-family: "Roboto";
-
   font-weight: 500;
   font-size: 16px;
   line-height: 1.62;
@@ -331,7 +328,7 @@ a {
   color: var(--interactiv-color);
   color: #ffffff;
 }
-.project-name {
+.cards-shadow .project-name {
   font-family: "Roboto";
 
   font-weight: 700;
@@ -342,7 +339,7 @@ a {
   color: #212121;
   padding-bottom: 4px;
 }
-.project-category {
+.cards-shadow .project-category {
   font-family: "Roboto";
 
   font-size: 16px;
@@ -357,12 +354,13 @@ a {
   flex-wrap: wrap;
   margin-bottom: 94px;
 }
-.img-container div {
-  padding: 10px;
-}
+
 .img-container .box-info {
   border: #e1e1f9 solid;
   border-width: 0 1px 1px 1px;
+}
+.cards-shadow {
+  margin: 10px;
 }
 .cards-shadow:hover {
   -webkit-box-shadow: 0px 11px 8px -6px rgb(102, 103, 118);
@@ -513,7 +511,11 @@ a {
 .icon-footer svg:focus {
   color: var(--interactiv-color);
 }
-
+.border-dim:focus,
+.border-dim:hover {
+  color: var(--interactiv-color);
+  border: 1px solid var(--interactiv-color);
+}
 .icons-list-footer .icon-footer:hover,
 .icons-list-footer .icon-footer:focus {
   width: 44px;
@@ -552,4 +554,122 @@ a {
   display: block;
   bottom: -22px;
   left: 0;
+}
+a,
+.current-sign,
+.img-container,
+.button-request,
+.border-dim,
+.buttons {
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.image {
+  position: relative;
+  display: block;
+}
+.content {
+  width: 100%;
+  height: 70px;
+
+  left: 0;
+  bottom: 2px;
+  position: absolute;
+  background-color: rgba(47, 48, 58, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+/*overlay*/
+.overlay-item {
+  position: relative;
+}
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #000000;
+  height: 0;
+  background-color: rgba(33, 150, 243, 0.9);
+  overflow: hidden;
+  transition-duration: 350ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.overlay-item:hover .overlay {
+  height: 100%;
+}
+.overlay .text {
+  padding-top: 50px;
+  text-align: center;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  /* or 156% */
+  letter-spacing: 0.03em;
+  color: #ffffff;
+}
+.box-info {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 24px;
+}
+/*Modal*/
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  transform: scale(0.8);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.is-hidden {
+  visibility: visible;
+  opacity: 1;
+  transform: scale(1);
+}
+.modal-content {
+  padding: 10px;
+  width: 528px;
+  height: 581px;
+  position: relative;
+  background: #ffffff;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.btn-close {
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  border-radius: 50%;
+  outline: none;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.btn-close:hover,
+.btn-close:focus {
+  background-color: rgba(0, 0, 0, 0.1);
 }
